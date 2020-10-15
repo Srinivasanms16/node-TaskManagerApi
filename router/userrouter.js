@@ -80,14 +80,14 @@ router.get("/user/:id",async(req,res)=>{
         {
             if(req.user.roles.includes("admin"))
             {
+                
            const result = await usermodel.findOne({_id})
            if(!result)
            {
                return res.status(404).send();
            }
-           res.status(200).send(result);
+            res.status(200).send(result);
         }
-        res.status(404).send("not authorized");
         }
     }
     catch(e){
